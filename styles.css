@@ -1,0 +1,38 @@
+:root {
+  --orange: 26 100% 55%;
+  --pale-orange: 25 100% 94%;
+  --very-dark-blue: 220 13% 13%;
+  --dark-grayish-blue: 219 9% 45%;
+  --grayish-blue: 220 14% 75%;
+  --light-grayish-blue: 223 64% 98%;
+  --white: 0 0% 100%;
+  --black: 100 100% 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-size: 16px;
+  font-family: "Kumbh Sans", sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
