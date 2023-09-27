@@ -16,3 +16,4 @@
 .prettierignore
 /design
 /node_modules
+/.vscode
