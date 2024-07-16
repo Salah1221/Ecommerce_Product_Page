@@ -1067,7 +1067,6 @@ button {
   opacity: 0;
   visibility: hidden;
   max-height: 0;
-  scale: 0;
 }
 
 .cart-content::before {

@@ -9,7 +9,6 @@ const addToCartBtn = document.body.querySelector(
   ".add-to-cart:not(.checkout-btn)"
 );
 const cartContent = document.body.querySelector(".cart-content");
-console.log(cartBtn, cartContent); // Added this line to log the cart button and cart content elements
 const plusBtn = document.body.querySelector(".plus-btn");
 const minusBtn = document.body.querySelector(".minus-btn");
 const nbOfProduct = document.body.querySelector(".nb");
