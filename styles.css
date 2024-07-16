@@ -1067,6 +1067,7 @@ button {
   opacity: 0;
   visibility: hidden;
   max-height: 0;
+  scale: 0;
 }
 
 .cart-content::before {
@@ -1150,73 +1151,34 @@ button {
   opacity: 0;
 }
 
-@keyframes projectile {
+@keyframes enlarge {
   0% {
-    transform: translate(0, 0) scale(1);
-  }
-  5% {
-    transform: translate(calc(-3.5px / 0.85), calc(-3.5px / 0.85)) scale(0.85);
-  }
-  10% {
-    transform: translate(calc(-7px / 0.7), calc(-7px / 0.7)) scale(0.7);
-  }
-  15% {
-    transform: translate(calc(-9.75px / 0.6), calc(-9.75px / 0.6)) scale(0.6);
-  }
-  25% {
-    transform: translate(calc(-12.5px / 0.5), calc(-12.5px / 0.5)) scale(0.5);
-  }
-  30% {
-    transform: translate(calc(-14.25px / 0.45), calc(-14.25px / 0.45))
-      scale(0.45);
-  }
-  40% {
-    transform: translate(calc(-16px / 0.4), calc(-16px / 0.4)) scale(0.4);
-  }
-  50% {
-    transform: translate(calc(-15.5px / 0.35), calc(-12.5px / 0.35)) scale(0.35);
-  }
-  55% {
-    transform: translate(calc(-15px / 0.3), calc(-10px / 0.3)) scale(0.3);
-  }
-  65% {
-    transform: translate(calc(-13px / 0.25), calc(-7.5px / 0.25)) scale(0.25);
-  }
-  70% {
-    transform: translate(calc(-11px / 0.2), calc(-5px / 0.2)) scale(0.2);
-  }
-  80% {
-    transform: translate(calc(-8.4px / 0.15), calc(-3px / 0.15)) scale(0.15);
-  }
-  85% {
-    transform: translate(calc(-5.8px / 0.1), calc(-1px / 0.1)) scale(0.1);
-  }
-  90% {
-    transform: translate(calc(-2.9px / 0.05), calc(-0.5px / 0.05)) scale(0.05);
+    scale: 0;
+    opacity: 0;
   }
   100% {
-    transform: translate(0, 0) scale(0);
-    opacity: 0;
-  }
-}
-
-@keyframes reverse-projectile {
-  from {
-    transform: translate(0, 0) scale(0);
-    opacity: 0;
-  }
-  to {
-    transform: translate(0, 0) scale(1);
+    scale: 1;
     opacity: 1;
   }
 }
 
-.cart-count:not(.pressed) {
-  animation: reverse-projectile 0.5s ease-in-out forwards;
+@keyframes shrink {
+  from {
+    scale: 1;
+    opacity: 1;
+  }
+  to {
+    scale: 0;
+    opacity: 0;
+  }
+}
+
+.cart-count:not(.pressed):not(:empty) {
+  animation: enlarge 0.5s ease-in-out forwards;
 }
 
 .cart-count.pressed {
-  animation: projectile 0.5s ease-in-out forwards;
+  animation: shrink 0.5s ease-in-out forwards;
 }
 
 .cart-count.active {
