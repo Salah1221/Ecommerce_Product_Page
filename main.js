@@ -51,9 +51,9 @@ function updateImgClickEvent() {
     // If screen width is 62.5rem or more, attach click event listener
     img.onclick = () => {
       isLightBoxOpen = true;
-      lightBoxOverlay.style.display = "block";
+      lightBoxOverlay.classList.add("active");
       imgDiv = lightBoxImg;
-      lightBox.style.display = "grid";
+      lightBox.classList.add("open");
       lightBoxImg.scrollLeft = img.scrollLeft;
     };
   }
@@ -63,9 +63,9 @@ updateImgClickEvent();
 
 lightBoxOverlay.onclick = () => {
   isLightBoxOpen = false;
-  lightBoxOverlay.style.display = "none";
+  lightBoxOverlay.classList.remove("active");
   imgDiv = img;
-  lightBox.style.display = "none";
+  lightBox.classList.remove("open");
 };
 
 mobileNavToggle.onclick = () => {
@@ -214,8 +214,13 @@ const goDirection = (direction) => {
         ? imgDiv.scrollLeft - imgWidth
         : 3 * imgWidth
       : (imgDiv.scrollLeft + imgWidth) % (4 * imgWidth);
-  imgDiv.scrollLeft = nextScrollLeft;
-  return nextScrollLeft / imgWidth;
+  let index =
+    direction === "right"
+      ? Math.floor(nextScrollLeft / imgWidth)
+      : Math.ceil(nextScrollLeft / imgWidth);
+  index = index >= 4 ? 0 : index;
+  imgDiv.scrollLeft = index * imgWidth;
+  return index;
 };
 
 leftBtns.forEach((leftBtn) => {

@@ -761,7 +761,6 @@ button {
   --gap: 0.5rem;
   position: relative;
   transition: background-color 0.3s, transform 0.3s;
-  /* margin-bottom: 2rem; */
 }
 
 @media (min-width: 62.5rem) {
@@ -878,20 +877,23 @@ button {
   position: relative;
 }
 
-.gallery.light-box {
-  display: none;
+.light-box {
+  visibility: hidden;
+  opacity: 0;
+  scale: 0.5;
   position: absolute;
-
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  max-width: 500px;
+  top: calc(50% - 250px);
+  left: calc(50% - 250px);
+  aspect-ratio: 1;
+  z-index: 99;
+  transition: visibility 0.3s, opacity 0.3s, scale 0.3s;
 }
 
-.light-box {
-  max-width: 500px;
-  aspect-ratio: 1;
-  height: auto;
-  z-index: 99;
+.light-box.open {
+  visibility: visible;
+  opacity: 1;
+  scale: 1;
 }
 
 .arrow-container {
@@ -1269,15 +1271,24 @@ button {
   .imgs {
     border-radius: 1rem;
   }
-  .gallery:not(.light-box) .imgs button {
+  .gallery:not(.light-box) .arrow-container {
     display: none;
   }
   .light-box-overlay {
-    display: none;
+    visibility: hidden;
     position: fixed;
     inset: 0;
     background-color: hsl(var(--clr-black) / 0.75);
     z-index: 98;
     backdrop-filter: blur(5px);
+    transition: visibility 0.3s, opacity 0.3s;
+    opacity: 0;
+  }
+  .dark .light-box-overlay {
+    background-color: hsl(var(--clr-text) / 0.25);
+  }
+  .light-box-overlay.active {
+    visibility: visible;
+    opacity: 1;
   }
 }
