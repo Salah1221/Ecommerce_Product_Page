@@ -67,6 +67,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: white;
   -webkit-tap-highlight-color: transparent;
+  min-height: 100dvh;
 }
 
 img,
