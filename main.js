@@ -78,8 +78,10 @@ mobileNavToggle.onclick = () => {
 
 const viewportHeight = Math.max(
   document.documentElement.clientHeight || 0,
-  window.innerHeight || 0,
-  window.scrollHeight || 0
+  document.documentElement.scrollHeight || 0,
+  document.documentElement.offsetHeight || 0,
+  document.body.scrollHeight || 0,
+  document.body.offsetHeight || 0
 );
 
 document.body.style.setProperty("--dark-overlay-height", viewportHeight + "px");
