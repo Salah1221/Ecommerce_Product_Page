@@ -76,7 +76,7 @@ mobileNavToggle.onclick = () => {
   root.style.setProperty("--nav-height", document.body.scrollHeight + "px");
 };
 
-const viewportHeight = Math.max(
+const scrollHeight = Math.max(
   document.documentElement.clientHeight || 0,
   document.documentElement.scrollHeight || 0,
   document.documentElement.offsetHeight || 0,
@@ -84,7 +84,7 @@ const viewportHeight = Math.max(
   document.body.offsetHeight || 0
 );
 
-document.body.style.setProperty("--dark-overlay-height", viewportHeight + "px");
+document.body.style.setProperty("--dark-overlay-height", scrollHeight + "px");
 
 themeToggle.onclick = () => {
   document.body.classList.toggle("dark");

@@ -761,7 +761,7 @@ button {
   --gap: 0.5rem;
   position: relative;
   transition: background-color 0.3s, transform 0.3s;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 @media (min-width: 62.5rem) {
