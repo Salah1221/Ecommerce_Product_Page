@@ -283,8 +283,8 @@ select {
 /* dark mode overlay */
 
 body {
-  --dark-overlay-height: 100vh;
-  min-height: 100vh;
+  --dark-overlay-height: 100dvh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
@@ -418,7 +418,7 @@ header svg {
   nav ~ .overlay {
     position: absolute;
     inset: 0 0 auto 0;
-    height: var(--nav-height, 100vh);
+    height: var(--nav-height, 100dvh);
     z-index: 9998;
     background-color: hsl(var(--clr-black) / 0.75);
     backdrop-filter: blur(0.5rem);
