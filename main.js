@@ -31,6 +31,7 @@ const lightBoxThumbs = document.body.querySelectorAll(
 const lightBox = document.body.querySelector(".light-box");
 const root = document.documentElement;
 const lightBoxOverlay = document.body.querySelector(".light-box-overlay");
+const closeBtn = document.body.querySelector(".close");
 
 let isLightBoxOpen = false;
 
@@ -61,12 +62,15 @@ function updateImgClickEvent() {
 
 updateImgClickEvent();
 
-lightBoxOverlay.onclick = () => {
+const closeAction = () => {
   isLightBoxOpen = false;
   lightBoxOverlay.classList.remove("active");
   imgDiv = img;
   lightBox.classList.remove("open");
 };
+
+lightBoxOverlay.onclick = closeAction;
+closeBtn.onclick = closeAction;
 
 mobileNavToggle.onclick = () => {
   mobileNavToggle.setAttribute(
