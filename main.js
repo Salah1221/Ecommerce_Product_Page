@@ -94,7 +94,8 @@ themeToggle.onclick = () => {
   document.body.classList.toggle("dark");
 };
 
-cartBtn.onclick = () => {
+cartBtn.onclick = (e) => {
+  e.stopPropagation();
   cartBtn.setAttribute(
     "aria-expanded",
     cartBtn.getAttribute("aria-expanded") === "false" ? "true" : "false"
@@ -107,6 +108,14 @@ cartBtn.onclick = () => {
     cartCount.classList.remove("pressed");
   }
 };
+
+document.addEventListener("click", (e) => {
+  if (!cartContent.contains(e.target) && e.target !== cartBtn) {
+    cartBtn.setAttribute("aria-expanded", "false");
+    cartContent.classList.remove("open");
+    cartCount.classList.remove("pressed");
+  }
+});
 
 window.onload = () => {
   let toggleSvgInfo = themeToggleSvg.getBoundingClientRect();
