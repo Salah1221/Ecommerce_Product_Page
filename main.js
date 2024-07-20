@@ -51,11 +51,13 @@ function updateImgClickEvent() {
   } else {
     // If screen width is 62.5rem or more, attach click event listener
     img.onclick = () => {
+      let imgWidth = imgDiv.getBoundingClientRect().width;
       isLightBoxOpen = true;
       lightBoxOverlay.classList.add("active");
       imgDiv = lightBoxImg;
       lightBox.classList.add("open");
       lightBoxImg.scrollLeft = img.scrollLeft;
+      toggleActive(lightBoxThumbs, img.scrollLeft / imgWidth);
     };
   }
 }
